@@ -9,10 +9,13 @@ def application(environ, start_response):
     sum = 0
     product = 0
    
-    if '' not in [first_num, second_num]:
+    try:
         first_num, second_num = int(first_num), int(second_num)
 	sum = first_num + second_num
 	product = first_num * second_num
+    except ValueError:
+	sum = 'Error. Try again'
+	product = 'Error. Try again'
 
     if sum == '' or product == '':
         sum = 0
